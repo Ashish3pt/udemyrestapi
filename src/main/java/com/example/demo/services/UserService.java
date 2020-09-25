@@ -50,7 +50,7 @@ public class UserService {
 			throw new UserNotFound("User Not found in Repo. Provide Correct User ID");
 		}
 		
-		user.setId(id);
+		user.setUserid(id);
 		return userRepository.save(user);
 		
 	}

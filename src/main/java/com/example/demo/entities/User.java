@@ -10,13 +10,17 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.hateoas.RepresentationModel;
+
+
+
 @Entity
 @Table(name="user")
-public class User {
+public class User extends RepresentationModel<User>{
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long userid;
 	
 	
 	@NotEmpty(message = "Username is a mandatory field")
@@ -49,7 +53,7 @@ public class User {
 
 	public User(Long id, String username, String firstname, String lastname, String email, String role, String ssn) {
 		super();
-		this.id = id;
+		this.userid = id;
 		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -58,12 +62,12 @@ public class User {
 		this.ssn = ssn;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getUserid() {
+		return userid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserid(Long id) {
+		this.userid = id;
 	}
 
 	public String getUsername() {
@@ -124,7 +128,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
+		return "User [id=" + userid + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", email=" + email + ", role=" + role + ", ssn=" + ssn + ", orders=" + orders + "]";
 	}
 	
